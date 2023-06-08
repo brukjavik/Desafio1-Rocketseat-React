@@ -1,0 +1,89 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  width: 100%;
+  margin-top: 4.063rem;
+}
+
+.wrapper {
+  color: var(--gray-200);
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: space-around;
+  width: 64%;
+}
+
+.wrapper div {
+  display: inline;
+}
+
+.created p {
+  color: var(--blue);
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.created div {
+  padding: 0.125rem 0.5rem;
+  gap: 0.625rem;
+  width: 1.563rem;
+  height: 1.188rem;
+  font-size: 0.75rem;
+  line-height: 15px;
+  background: var(--gray-400);
+  border-radius: 999px;
+}
+
+.finished p {
+  color: var(--purple);
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.finished div {
+  display: inline;
+  padding: 0.125rem 0.5rem;
+  gap: 0.625rem;
+  width: 1.563rem;
+  height: 1.188rem;
+  font-size: 0.75rem;
+  line-height: 15px;
+  background: var(--gray-400);
+  border-radius: 999px;
+}
+
+.tasksList {
+  width: 46rem;
+  height: 17.938rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--gray-400);
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.yellow {
+  padding: 4rem;
+}
+
+.tasksList img {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.firstMessage {
+  color: var(--gray-300);
+  line-height: 140%;
+}
+
+.secondMessage {
+  font-weight: 400;
+  color: var(--gray-300);
+  line-height: 140%;
+}
