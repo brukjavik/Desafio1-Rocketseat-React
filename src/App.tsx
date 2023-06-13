@@ -8,6 +8,7 @@ import "./global.css";
 export function App() {
   const [tasks, setTasks] = useState<string[]>([]);
   const [criadas, setCriadas] = useState(0);
+  const [concluidas, setConcluidas] = useState(0);
 
   function handleAddTask(event: FormEvent, task: string) {
     event.preventDefault();
@@ -15,15 +16,21 @@ export function App() {
     setCriadas(criadas + 1);
   }
 
-  function handleDeletarTarefa(taskToDelete: string) {
+  function handleDeletarTarefa(taskToDelete: string, flag: boolean) {
     const tasksWithoutDeletedOne = tasks.filter(
       (task) => task !== taskToDelete
     );
     setTasks(tasksWithoutDeletedOne);
     setCriadas(criadas - 1);
+    if (flag) {
+      setConcluidas(concluidas - 1);
+    }
   }
 
-  console.log(tasks);
+  function handleConcluidas(flag: boolean) {
+    if (!flag) setConcluidas(concluidas + 1);
+    else setConcluidas(concluidas - 1);
+  }
 
   return (
     <div>
@@ -32,7 +39,9 @@ export function App() {
       <MainContent
         tasks={tasks}
         criadas={criadas}
+        concluidas={concluidas}
         handleDeletarTarefa={handleDeletarTarefa}
+        handleConcluidas={handleConcluidas}
       />
     </div>
   );

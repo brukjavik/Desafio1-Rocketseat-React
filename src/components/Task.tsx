@@ -1,10 +1,11 @@
+import { useState } from "react";
 import styles from "./Task.module.css";
 import { Trash } from "phosphor-react";
 
 interface TaskProps {
   task: string;
-  handleConcluidas: () => void;
-  handleDeletarTarefa: (taskToDelete: string) => void;
+  handleConcluidas: (flag: boolean) => void;
+  handleDeletarTarefa: (taskToDelete: string, flag: boolean) => void;
 }
 
 export function Task({
@@ -13,7 +14,21 @@ export function Task({
   handleDeletarTarefa,
 }: TaskProps) {
   function handleDeleteTask() {
-    handleDeletarTarefa(task);
+    handleDeletarTarefa(task, flag);
+  }
+
+  const [state, setState] = useState(false);
+  const [flag, setFlag] = useState(false);
+
+  function handleClick() {
+    setState(!state);
+    if (!state && !flag) {
+      handleConcluidas(flag);
+      setFlag(true);
+    } else if (state && flag) {
+      handleConcluidas(flag);
+      setFlag(false);
+    }
   }
 
   return (
@@ -21,7 +36,7 @@ export function Task({
       <input
         type="checkbox"
         className={styles.checkbox}
-        onClick={handleConcluidas}
+        onClick={handleClick}
       />
       <p>{task}</p>
       <button title="Deletar tarefa" onClick={handleDeleteTask}>

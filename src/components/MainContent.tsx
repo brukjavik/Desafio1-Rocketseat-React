@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./MainContent.module.css";
 import { Task } from "./Task";
 import clipboard from "../assets/clipboard.svg";
@@ -6,21 +5,18 @@ import clipboard from "../assets/clipboard.svg";
 interface MainContentProps {
   tasks: string[];
   criadas: number;
-  handleDeletarTarefa: (taskToDelete: string) => void;
+  concluidas: number;
+  handleDeletarTarefa: (taskToDelete: string, flag: boolean) => void;
+  handleConcluidas: (flag: boolean) => void;
 }
 
 export function MainContent({
   tasks,
   criadas,
+  concluidas,
   handleDeletarTarefa,
+  handleConcluidas,
 }: MainContentProps) {
-  const [concluidas, setConcluidas] = useState(0);
-
-  function handleConcluidas() {
-    setConcluidas(concluidas + 1);
-    console.log("AOBA");
-  }
-
   return (
     <div className={styles.parent}>
       <div className={styles.wrapper}>
