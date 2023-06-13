@@ -38,7 +38,7 @@ export function Task({
         className={styles.checkbox}
         onClick={handleClick}
       />
-      <p>{task}</p>
+      <p className={state ? styles.crossed : ""}>{task}</p>
       <button title="Deletar tarefa" onClick={handleDeleteTask}>
         <Trash size={16} />
       </button>

@@ -78,3 +78,7 @@
   color: var(--danger);
   background-color: var(--gray-400);
 }
+
+.crossed {
+  text-decoration: line-through;
+}
